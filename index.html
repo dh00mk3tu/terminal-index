@@ -1,0 +1,120 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <script src="/cdn-cgi/apps/head/st6l0glDx1SuqHGnpjshJffuUD8.js"></script><script src='https://code.jquery.com/jquery-3.1.1.min.js' type="4aa55a470197dc20a55f3aad-text/javascript"></script>
+    <script src='https://rawgit.com/jcubic/jquery.terminal/master/js/jquery.terminal.js' type="4aa55a470197dc20a55f3aad-text/javascript"></script>
+      <link rel='stylesheet prefetch' href='https://rawgit.com/jcubic/jquery.terminal/master/css/jquery.terminal.css'>
+    <script src='https://rawgit.com/jcubic/jquery.terminal/master/js/jquery.mousewheel-min.js' type="4aa55a470197dc20a55f3aad-text/javascript"></script>
+
+
+    <script src="https://rawgit.com/cvan/keyboardevent-key-polyfill/master/index.js" type="4aa55a470197dc20a55f3aad-text/javascript"></script>
+    <style></style>
+  </head>
+<body>
+
+<script type="4aa55a470197dc20a55f3aad-text/javascript">
+jQuery(document).ready(function($) {
+     keyboardeventKeyPolyfill.polyfill();
+    var id = 1;
+    $('body').terminal(function(command, term) {
+        if (command == 'help') {
+            term.echo("------------------------------")
+            term.echo("Defmax v1")
+            term.echo("-------------------------------")
+            term.echo("")
+
+
+            term.echo("Regarding company:")
+            term.echo("   about          About the company")
+            term.echo("   team           About the team")
+
+
+            term.echo("Misc:")
+            term.echo("   clear          Clear the screen");
+            term.echo("   ctf_rewards    Reward details of our ctf challenge");
+            term.echo("   demo           Demo of our recon scanner");
+            term.echo("   ls             List all commands");
+            term.echo("   signup         Signup for our recon scanner");
+
+
+        }
+
+        else if (command == 'test'){
+            term.push(function(command, term) {
+                if (command == 'help') {
+                    term.echo('if you type ping it will display pong');
+                } else if (command == 'ping') {
+                    term.echo('pong');
+                } else {
+                    term.echo('unknown command ' + command);
+                }
+            }, {
+                prompt: 'test> ',
+                name: 'test'});
+        }
+
+        else if(command == "about"){
+          term.echo("Defmax is a cyber-security firm endeavoring to enhance organization�s defense. We spot the vulnerabilities that a scanner cannot detect over manual penetration testing, our elite team is recognized as top-notch researchers around the globe and they provide the quality reports in time under any precedence and we monitor our client&#39;s technologies 24/7 to ensure the risk mitigation of publicly disclosed vulnerabilities.")
+
+        }
+
+        else if(command == "team"){
+
+          term.echo("Defmax crew:")
+          term.echo("   N B Sri Harsha         :  Founder of defmax and passionate security researcher,CTF player and Automates stuff")
+          term.echo("   G Jyothi Swaroop       :  security analyst at defmax ")
+          term.echo("   Vishnu Vardhan         :  security analyst at defmax")
+          term.echo("   Shaik Abdul Quadir     :  IOT analyst at defmax")
+
+        }
+        else if (command == 'demo'){
+          term.echo('Still in development stage. You can signup for alpha. Enter `signup`');
+        }
+        else if (command == 'ls'){
+          term.echo('help');
+          term.echo('demo');
+          term.echo('signup');
+          term.echo('ctf_rewards');
+        }
+
+        else if(command == "ctf_rewards"){
+          term.echo('0.01 BTC for the best approach')
+          term.echo('0.01 BTC for the fastest solving')
+          term.echo('Join our slack group https://goo.gl/UXSXui')
+        }
+
+        else if (command == 'ctf_hint'){
+          term.echo("P=2:vXxhz=l]LVH*#df9*>m1$!=sP<{R1xyXxfE4=jL@jZ@lQiN")
+          term.echo("Q=2y[JDG:y.mM$XMXq*Bcja#?$B0vI]dKRTuvsW=eLFS**Z2Nj]")
+          term.echo("Dont forget to remove 0 at the start!")
+        }
+
+        else if (command == 'signup') {
+          term.echo('Enter Your Email');
+          term.push(function(command, term) {
+            term.echo("We Will send a pivate invite to this mail:"+command)
+            term.echo("To get faster private invite try to solve the CTF challenge")
+            term.echo("Please enter `exit` to exit")
+
+
+          },{
+              prompt: 'email> ',
+              name: 'signup'});
+
+        }
+         else {
+            term.echo("unknow command " + command);
+        }
+    }, {
+        greetings: "Type demo to start testing, use help for commands",
+        onBlur: function() {
+            // prevent loosing focus
+            return false;
+        }
+    });
+});
+
+</script>
+<script src="https://ajax.cloudflare.com/cdn-cgi/scripts/7089c43e/cloudflare-static/rocket-loader.min.js" data-cf-settings="4aa55a470197dc20a55f3aad-|49" defer=""></script></body>
+</html>
